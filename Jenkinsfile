@@ -17,12 +17,12 @@ pipeline {
 
   agent any  
   stages {
-/**    stage('Cloning git') {
+    stage('Cloning git') {
       steps {
         git  'https://github.com/AnuchitKumhomkul/testjenkins.git'
       }
     }
-**/
+
     stage('Building image') {
       steps {
         script {
