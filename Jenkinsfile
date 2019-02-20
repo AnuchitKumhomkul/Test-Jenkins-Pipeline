@@ -17,6 +17,7 @@ pipeline {
 
   agent any
 
+  stages {
   stage('SCM Checkout') {
     checkout([
       $class: 'GitSCM',
@@ -27,13 +28,13 @@ pipeline {
     ])
   }
 
-/**  stages {
-    stage('Cloning git') {
-      steps {
-        git  'https://github.com/AnuchitKumhomkul/testjenkins.git'
-      }
-    }
-**/
+
+    //stage('Cloning git') {
+      //steps {
+        //git  'https://github.com/AnuchitKumhomkul/testjenkins.git'
+      //}
+    //}
+
     stage('Building image') {
       steps {
         script {
@@ -61,3 +62,4 @@ pipeline {
       notifyLINE("Failed")
     }
   }
+}
