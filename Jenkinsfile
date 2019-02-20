@@ -21,13 +21,11 @@ pipeline {
   stage('SCM Checkout') {
     checkout([
       $class: 'GitSCM',
-      branches: scm.branches,
-      doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
-      extentions: scm.extentions + [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]],
-      userRemoteConfigs: scm.userRemoteConfigs + [[refspec: '+refs/tags/*:refs/remotes/origin/tags/*']]
+      branches: [[name: env.BRANCH_NAME]],
+      extentions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]],
+      userRemoteConfigs: [[url: 'git@github.com:AnuchitKumhomkul/Test-Jenkins-Pipeline.git']]
     ])
   }
-
 
     //stage('Cloning git') {
       //steps {
