@@ -1,4 +1,4 @@
- def notifyLINE(status) {
+def notifyLINE(status) {
   def token = "rIxfHJHexQAMli8E4rhETrEKWqrVlTazDyY7xl0jkYJ"
   def jobName = env.JOB_NAME +' '+env.BRANCH_NAME
   def buildNumber = env.BUILD_NUMBER
@@ -10,20 +10,21 @@
 
 pipeline {
   environment {
-    registry = "kowoat/test-jenkins-pipeline"
+    registry = "kowoatz/test-jenkins-pipeline"
     registryCredential = 'kowoatz'
     dockerImage = ''
   }
 
   agent any
 
-  stages {
-    //stage('Cloning git') {
-      //steps {
-        //git  'https://github.com/AnuchitKumhomkul/Test-Jenkins-Pipeline.git'
-      //}
-    //}
-
+  stage('SCM Checkout') {
+/**  stages {
+    stage('Cloning git') {
+      steps {
+        git  'https://github.com/AnuchitKumhomkul/testjenkins.git'
+      }
+    }
+**/
     stage('Building image') {
       steps {
         script {
