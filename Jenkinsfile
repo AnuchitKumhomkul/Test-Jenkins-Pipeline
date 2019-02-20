@@ -61,4 +61,3 @@ pipeline {
       notifyLINE("Failed")
     }
   }
-}
