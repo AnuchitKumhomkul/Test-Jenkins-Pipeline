@@ -10,7 +10,6 @@
 
 pipeline {
   environment {
-    jobname = env.JOB_NAME
     registry = "kowoatz/anuchit"
     registryCredential = 'kowoatz'
     dockerImage = ''
@@ -28,7 +27,7 @@ pipeline {
     stage('Building image') {
       steps {
         script {
-          img = docker.build jobname
+          img = docker.build("${JOB_NAME}")
         }
       }
     }
