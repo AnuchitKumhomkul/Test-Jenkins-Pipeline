@@ -10,6 +10,7 @@
 
 pipeline {
   environment {
+    jobname = env.JOB_NAME
     registry = "kowoatz/anuchit"
     registryCredential = 'kowoatz'
     dockerImage = ''
@@ -18,25 +19,16 @@ pipeline {
   agent any
 
   stages {
-  stage('SCM Checkout') {
-    checkout([
-      $class: 'GitSCM',
-      branches: [[name: env.BRANCH_NAME]],
-      extentions: [[$class: 'CloneOption', noTags: false, reference: '', shallow: true]],
-      userRemoteConfigs: [[url: 'git@github.com:AnuchitKumhomkul/Test-Jenkins-Pipeline.git']]
-    ])
-  }
-
-    //stage('Cloning git') {
-      //steps {
-        //git  'https://github.com/AnuchitKumhomkul/testjenkins.git'
-      //}
-    //}
+    stage('Cloning git') {
+      steps {
+        git  'https://github.com/AnuchitKumhomkul/Test-Jenkins-Pipeline.git'
+      }
+    }
 
     stage('Building image') {
       steps {
         script {
-          img = docker.build registry
+          img = docker.build jobname
         }
       }
     }
