@@ -15,11 +15,9 @@ pipeline {
     dockerImage = ''
   }
 
-  agent any
-
-  stage('SCM Checkout') {
-/**  stages {
-    stage('Cloning git') {
+  agent any  
+  stages {
+/**    stage('Cloning git') {
       steps {
         git  'https://github.com/AnuchitKumhomkul/testjenkins.git'
       }
