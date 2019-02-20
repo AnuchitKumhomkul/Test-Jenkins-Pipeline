@@ -10,7 +10,7 @@
 
 pipeline {
   environment {
-    registry = "${JOB_NAME}"
+    registry = "kowoat/${JOB_NAME}"
     registryCredential = 'kowoatz'
     dockerImage = ''
   }
