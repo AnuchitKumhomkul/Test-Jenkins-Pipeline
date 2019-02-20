@@ -10,7 +10,7 @@
 
 pipeline {
   environment {
-    registry = "kowoatz/anuchit"
+    registry = "${JOB_NAME}"
     registryCredential = 'kowoatz'
     dockerImage = ''
   }
@@ -18,16 +18,16 @@ pipeline {
   agent any
 
   stages {
-    stage('Cloning git') {
-      steps {
-        git  'https://github.com/AnuchitKumhomkul/Test-Jenkins-Pipeline.git'
-      }
-    }
+    //stage('Cloning git') {
+      //steps {
+        //git  'https://github.com/AnuchitKumhomkul/Test-Jenkins-Pipeline.git'
+      //}
+    //}
 
     stage('Building image') {
       steps {
         script {
-          img = docker.build("${JOB_NAME}")
+          img = docker.build registry
         }
       }
     }
