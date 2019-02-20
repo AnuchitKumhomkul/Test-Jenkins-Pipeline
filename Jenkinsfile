@@ -10,7 +10,7 @@
 
 pipeline {
   environment {
-    registry = "kowoat/${JOB_NAME}"
+    registry = "kowoat/anuchit"
     registryCredential = 'kowoatz'
     dockerImage = ''
   }
@@ -27,7 +27,8 @@ pipeline {
     stage('Building image') {
       steps {
         script {
-          img = docker.build registry
+          //img = docker.build registry
+          sh "docker build -t kowoat/${JOB_NAME}"
         }
       }
     }
