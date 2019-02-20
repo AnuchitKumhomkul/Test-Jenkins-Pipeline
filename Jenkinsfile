@@ -10,7 +10,7 @@ def notifyLINE(status) {
 
 pipeline {
   environment {
-    registry = "kowoatz/test-jenkins-pipeline"
+    registry = "${JOB_NAME}"
     registryCredential = 'kowoatz'
     dockerImage = ''
   }
