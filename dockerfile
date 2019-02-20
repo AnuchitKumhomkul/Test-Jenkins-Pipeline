@@ -1,5 +1,6 @@
-FROM dockerfile/ubuntu
+#Download base image ubuntu 16.04
+FROM alpine:3.7
 
-USER root
+#Update software repository
+RUN echo "hello world"
 
-RUN apt-get update -y
