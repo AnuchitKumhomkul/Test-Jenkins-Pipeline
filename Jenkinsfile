@@ -10,7 +10,7 @@
 
 pipeline {
   environment {
-    registry = "kowoat/anuchit"
+    registry = "kowoat/test-jenkins-pipeline"
     registryCredential = 'kowoatz'
     dockerImage = ''
   }
@@ -27,8 +27,7 @@ pipeline {
     stage('Building image') {
       steps {
         script {
-          //img = docker.build registry
-          sh "docker build -t kowoat/${JOB_NAME}"
+          img = docker.build registry
         }
       }
     }
