@@ -1,5 +1,5 @@
 def notifyLINE(status) {
-  def token = "rIxfHJHexQAMli8E4rhETrEKWqrVlTazDyY7xl0jkYJ"
+  def token = "AKINBMs1efYjcK3W2AtFtw1VEDpi4Xp5ArcQf52OSVS"
   def jobName = env.JOB_NAME +' '+env.BRANCH_NAME
   def buildNumber = env.BUILD_NUMBER
 
